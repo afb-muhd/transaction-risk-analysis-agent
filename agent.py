@@ -144,7 +144,7 @@ def _response_is_grounded(final_text, tools_actually_called):
     """
 
     violations=[]
-    lowered=final_text.lower()
+    lowered = (final_text or "").lower()
 
     for tool_name,phrases in CLAIM_KEYWORDS_TO_TOOL.items():
         for phrase in phrases:
@@ -162,6 +162,10 @@ def analyze_transaction(transaction_id):
         return
  
     transaction = transaction_rows.iloc[0].to_dict()
+
+# Ground truth is used only for evaluation, never shown to the LLM
+    transaction.pop("is_known_anomaly", None)
+    transaction.pop("anomaly_type", None)
  
     messages = [
         {

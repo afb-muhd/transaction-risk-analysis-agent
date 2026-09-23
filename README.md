@@ -170,7 +170,7 @@ The agent supports multiple tool-calling rounds rather than assuming exactly one
 
 The project includes a lightweight grounding mechanism.
 
-The agent tracks which tools were actually called during the conversation and checks the final response for claims associated with specific tools.
+The Python agent tracks which tools were actually called during the conversation and checks the final response for claims associated with specific tools.
 
 For example:
 
@@ -250,7 +250,6 @@ Total Known Anomalies
 - OpenAI-compatible LLM API
 - OpenRouter
 - LLM Tool Calling
-- Faker
 - python-dotenv
 
 ## Project Structure
